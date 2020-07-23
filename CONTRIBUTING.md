@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for your interest in contributing to `mirror-gatsby-base`
+Thanks for your interest in contributing to `starter-gatsby`
 
 - [Contributing Etiquette](#contributing-etiquette)
 - [Creating an Issue](#creating-an-issue)
@@ -36,9 +36,9 @@ Please see our [Contributor Code of Conduct](./CODE_OF_CONDUCT.md) for informati
 
 * Issues with no clear steps to reproduce will not be triaged. If an issue is labeled with "needs: reply" and receives no further replies from the author of the issue for more than 14 days, it will be closed.
 
-* If you think you have found a bug, or have a new feature idea, please start by making sure it hasn't already been [reported](https://github.com/lunaris-studios/mirror-gatsby-base/issues). You can search through existing issues to see if there is a similar one reported. Include closed issues as it may have been closed with a solution.
+* If you think you have found a bug, or have a new feature idea, please start by making sure it hasn't already been [reported](https://github.com/lunaris-studios/starter-gatsby/issues). You can search through existing issues to see if there is a similar one reported. Include closed issues as it may have been closed with a solution.
 
-* Next, [create a new issue](https://github.com/lunaris-studios/mirror-gatsby-base/issues/new/choose) that thoroughly explains the problem. Please fill out the populated issue form before submitting the issue.
+* Next, [create a new issue](https://github.com/lunaris-studios/starter-gatsby/issues/new/choose) that thoroughly explains the problem. Please fill out the populated issue form before submitting the issue.
 
 
 ## Creating a Good Code Reproduction
@@ -49,14 +49,14 @@ A code reproduction is a small application that is built to demonstrate a partic
 
 ### Why Should You Create a Reproduction?
 
-A code reproduction of the issue you are experiencing helps us better isolate the cause of the problem. This is an important first step to getting any bug fixed! 
+A code reproduction of the issue you are experiencing helps us better isolate the cause of the problem. This is an important first step to getting any bug fixed!
 
 Without a reliable code reproduction, it is unlikely we will be able to resolve the issue, leading to it being closed. In other words, creating a code reproduction of the issue helps us help you.
 
 ### How to Create a Reproduction
 
 <!-- TODO (sam): updated referernce to mirror templates -->
-* Create a new project via the [**Mirror CLI Tool**](https://github.com/lunaris-studios/mirror), using the `mirror-gatsby-base` template. 
+* Create a new project via the [**Mirror CLI Tool**](https://github.com/lunaris-studios/mirror), using the `starter-gatsby` template.
 * Add the minimum amount of code needed to recreate the issue you are experiencing. Do not include anything that is not required to reproduce the issue. This includes any 3rd party plugins you have installed.
 * Publish the application on GitHub and include a link to it when [creating an issue](#creating-an-issue).
 * Be sure to include steps to reproduce the issue. These steps should be clear and easy to follow.
@@ -72,7 +72,7 @@ Without a reliable code reproduction, it is unlikely we will be able to resolve 
 
 * We appreciate you taking the time to contribute! Before submitting a pull request, we ask that you please [create an issue](#creating-an-issue) that explains the bug or feature request and let us know that you plan on creating a pull request for it. If an issue already exists, please comment on that issue letting us know you would like to submit a pull request for it. This helps us to keep track of the pull request and make sure there isn't duplicated effort.
 
-* Looking for an issue to fix? Make sure to look through our issues with the [help wanted](https://github.com/lunaris-studios/mirror-gatsby-base/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22) label!
+* Looking for an issue to fix? Make sure to look through our issues with the [help wanted](https://github.com/lunaris-studios/starter-gatsby/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22) label!
 
 
 ### Setup
@@ -113,7 +113,7 @@ mirror use <template-name> <output-directory>
 
 ### Submit Pull Request
 
-1. [Create a new pull request](https://github.com/lunaris-studios/mirror-gatsby-base/compare) with the `master` branch as the `base`. You may need to click on `compare across forks` to find your changes.
+1. [Create a new pull request](https://github.com/lunaris-studios/starter-gatsby/compare) with the `master` branch as the `base`. You may need to click on `compare across forks` to find your changes.
 2. See the [Creating a pull request from a fork](https://help.github.com/articles/creating-a-pull-request-from-a-fork/) GitHub help article for more information.
 3. Please fill out the provided Pull Request template to the best of your ability and include any issues that are related.
 

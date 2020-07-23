@@ -1,6 +1,6 @@
-# `mirror-gatsby-base` Legal Docs
+# `starter-gatsby` Legal Docs
 
-Welcome to the [mirror-gatsby-base](https://github.com/lunaris-studios/mirror-gatsby-base), `legal` documentation.
+Welcome to the [starter-gatsby](https://github.com/lunaris-studios/starter-gatsby), `legal` documentation.
 
 | Topic                                                                                   | Description                                |
 | :-------------------------------------------------------------------------------------- | :----------------------------------------- |

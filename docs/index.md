@@ -1,14 +1,14 @@
-# `mirror-gatsby-base` Docs
+# `starter-gatsby` Docs
 
-Welcome to the [mirror-gatsby-base](https://github.com/lunaris-studios/mirror-gatsby-base) documentation.
+Welcome to the [starter-gatsby](https://github.com/lunaris-studios/starter-gatsby) documentation.
 
-## Contributing to `mirror-gatsby-base`
+## Contributing to `starter-gatsby`
 
-`mirror-gatsby-base` is an open source project.
+`starter-gatsby` is an open source project.
 
-Learn how to contribute to `mirror-gatsby-base` with the following resources:
+Learn how to contribute to `starter-gatsby` with the following resources:
 
 | Topic                                | Description                                         |
 | :----------------------------------- | :-------------------------------------------------- |
-| [Development](development/README.md) | How to contribute to `mirror-gatsby-base` development. |
+| [Development](development/README.md) | How to contribute to `starter-gatsby` development. |
 | [Legal](legal/README.md)             | Contributor license agreements.                     |

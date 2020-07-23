@@ -1,6 +1,6 @@
-# `mirror-gatsby-base` Development Docs
+# `starter-gatsby` Development Docs
 
-Welcome to the [mirror-gatsby-base](https://github.com/lunaris-studios/mirror-gatsby-base), `development` documentation.
+Welcome to the [starter-gatsby](https://github.com/lunaris-studios/starter-gatsby), `development` documentation.
 
 | Topic                         | Description                                                                                                |
 | :---------------------------- | :--------------------------------------------------------------------------------------------------------- |

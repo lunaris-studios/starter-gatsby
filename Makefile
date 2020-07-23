@@ -1,7 +1,7 @@
 # MAKEFILE
 #
 # @author      Sam Craig <sam@lunaris.io>
-# @link        https://github.com/lunaris-studios/mirror-gatsby-base
+# @link        https://github.com/lunaris-studios/starter-gatsby
 # ------------------------------------------------------------------------------
 
 .EXPORT_ALL_VARIABLES:
@@ -14,17 +14,17 @@ help:
 	@echo ""
 	@echo "The following commands are available:"
 	@echo ""
-	@echo "    make build      : Build production Gatsby payload"	
+	@echo "    make build      : Build production Gatsby payload"
 	@echo ""
 	@echo "    make clean      : Remove build / test artifacts"
 	@echo ""
-	@echo "    make dev        : Start Gatsby development server"		
+	@echo "    make dev        : Start Gatsby development server"
 	@echo ""
-	@echo "    make format     : Format code"		
+	@echo "    make format     : Format code"
 	@echo ""
-	@echo "    make generate   : Generate code"		
-	@echo ""	
-	@echo "    make serve      : Serve static build directory via local http server"		
+	@echo "    make generate   : Generate code"
+	@echo ""
+	@echo "    make serve      : Serve static build directory via local http server"
 	@echo ""
 	@echo "    make update     : Update project dependencies"
 	@echo "    make update-nix : Update niv dependencies"
@@ -34,13 +34,13 @@ help:
 # === Entities ===
 
 # URL of the remote repository
-REPOSITORY := https://github.com/lunaris-studios/mirror-gatsby-base
+REPOSITORY := https://github.com/lunaris-studios/starter-gatsby
 
 # Project owner
 OWNER := lunaris-studios
 
 # Project name
-PROJECT := mirror-gatsby-base
+PROJECT := starter-gatsby
 
 # Project version
 VERSION := 0.0.0
@@ -97,7 +97,7 @@ generate:
 # Serve static build directory via local http server
 .PHONY: serve
 serve:
-	@npm run serve				
+	@npm run serve
 
 # === Update ===
 
@@ -105,7 +105,7 @@ serve:
 .PHONY: update
 update:
 	@$(MAKE) -s update-niv
-	@$(MAKE) -s update-npm	
+	@$(MAKE) -s update-npm
 
 # Update niv dependencies
 .PHONY: update-niv
