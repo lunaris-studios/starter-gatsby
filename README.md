@@ -1,6 +1,7 @@
 <center>
 
 ## 🔳 `starter-gatsby`
+
 ### A simple starter to get up and developing quickly with Gatsby
 
 [![LICENSE](https://img.shields.io/github/license/lunaris-studios/starter-gatsby.svg)](https://github.com/lunaris-studios/starter-gatsby/blob/master/LICENSE)
@@ -21,9 +22,11 @@
 <!-- ----------------------------------------------------------------- -->
 
 ## Features
-- Automatic CI and release provisioning via **Github Actions** and [**semantic-release**](https://github.com/semantic-release/semantic-release)
-- Scoped dependency setup via, [**Nix**](https://nixos.org/), [**Niv**](https://github.com/nmattia/niv), [**Lorri**](https://github.com/target/lorri), and [**direnv**](https://github.com/direnv/direnv)
 
+- Automatic CI and release provisioning via **Github Actions** and [**semantic-release**](https://github.com/semantic-release/semantic-release)
+- Dependency setup & injection via, [**Nix**](https://nixos.org/), [**Niv**](https://github.com/nmattia/niv), [**Lorri**](https://github.com/target/lorri), and [**direnv**](https://github.com/direnv/direnv)
+- Automatically generate **Typescript** types for **Gatsby** **GraphQL** queries via [**graphql-code-generator**](https://github.com/dotansimha/graphql-code-generator)
+- Testing via [**Jest**](https://jestjs.io/) and [**@testing-library**](https://testing-library.com/)
 
 <!-- ----------------------------------------------------------------- -->
 
