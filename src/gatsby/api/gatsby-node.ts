@@ -4,4 +4,5 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
-module.exports = require("./src/gatsby/api/gatsby-node.ts");
+export { createPages } from "../_create-pages";
+export { onCreateNode } from "../_on-create-node";

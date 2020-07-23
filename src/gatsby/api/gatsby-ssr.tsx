@@ -4,4 +4,4 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
-module.exports = require("./src/gatsby/api/gatsby-browser.tsx");
+export { wrapPageElement } from "../_wrap-page-element";

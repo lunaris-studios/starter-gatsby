@@ -1,64 +1,59 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's default starter
-</h1>
+<center>
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+## 🔳 `mirror-gatsby-base`
+### A mirror template, for a mirror template (we need to go deeper)
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
+[![LICENSE](https://img.shields.io/github/license/lunaris-studios/mirror-gatsby-base.svg)](https://github.com/lunaris-studios/mirror-gatsby-base/blob/master/LICENSE)
+[![Releases](https://img.shields.io/github/release-pre/lunaris-studios/mirror-gatsby-base.svg)](https://github.com/lunaris-studios/mirror-gatsby-base/releases)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
-## 🚀 Quick start
+</center>
 
-1.  **Create a Gatsby site.**
+<!-- ----------------------------------------------------------------- -->
 
-    Use the Gatsby CLI to create a new site, specifying the default starter.
+## Table of Contents
 
-    ```shell
-    # create a new Gatsby site using the default starter
-    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
-    ```
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
 
-1.  **Start developing.**
+<!-- ----------------------------------------------------------------- -->
 
-    Navigate into your new site’s directory and start it up.
+<a name="features"></a>
+## Features
+- **Contribution**, **Maintenance**, and **Release** documentation
+- **Apache Software License 2.0**, **MIT**, or **GNU GPL v3**.0 license options
+- Automatic CI and release provisioning via **Github Actions** and [**semantic-release**](https://github.com/semantic-release/semantic-release)
+- Scoped dependency setup via, [**Nix**](https://nixos.org/), [**Niv**](https://github.com/nmattia/niv), [**Lorri**](https://github.com/target/lorri), and [**direnv**](https://github.com/direnv/direnv)
 
-    ```shell
-    cd my-default-starter/
-    gatsby develop
-    ```
 
-1.  **Open the source code and start editing!**
+<!-- ----------------------------------------------------------------- -->
 
-    Your site is now running at `http://localhost:8000`!
+<a name="installation"></a>
+## Installation
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+```shell
+mirror download lunaris-studios/mirror-gatsby-base template  
+```
 
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+<!-- ----------------------------------------------------------------- -->
 
-## 🧐 What's inside?
+<a name="usage"></a>
+## Usage
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+```shell
+mirror use <output-directory>
+```
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
+<!-- ----------------------------------------------------------------- -->
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+<a name="contributing"></a>
+## Contributing
+
+`mirror-gatsby-base` is an open source project and we are very happy to accept community contributions. Please refer to [Contributing to mirror-gatsby-base](./CONTRIBUTING.md) for more details.
+
+de_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
 
 2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
 
