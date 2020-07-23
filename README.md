@@ -1,7 +1,7 @@
 <center>
 
 ## 🔳 `starter-gatsby`
-### A mirror template, for a mirror template (we need to go deeper)
+### A simple starter to get up and developing quickly with Gatsby
 
 [![LICENSE](https://img.shields.io/github/license/lunaris-studios/starter-gatsby.svg)](https://github.com/lunaris-studios/starter-gatsby/blob/master/LICENSE)
 [![Releases](https://img.shields.io/github/release-pre/lunaris-studios/starter-gatsby.svg)](https://github.com/lunaris-studios/starter-gatsby/releases)
