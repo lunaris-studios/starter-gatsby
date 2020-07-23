@@ -1,6 +1,6 @@
 <center>
 
-## 🔳 `starter-gatsby`
+## 🔰 `starter-gatsby`
 
 ### A simple starter to get up and developing quickly with Gatsby
 
