@@ -25,9 +25,21 @@ jobs:
         run: |
           npm ci
 
-      - name: Release
+      - name: Run Lighthouse
         id: build-5
+        run: |
+          npm run build
+          npm run lighthouse
+
+      - name: Run Tests
+        id: build-6
+        run: |
+          npm run test
+
+      - name: Release
+        id: build-7
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
-        run: npm run release
+        run: |
+          npm run release
