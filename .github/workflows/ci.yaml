@@ -31,17 +31,17 @@ jobs:
           npm run build
 
       - name: Run Lighthouse
-        id: release-6
+        id: release-7
         run: |
           npm run lighthouse
 
       - name: Run Tests
-        id: release-6
+        id: release-8
         run: |
           npm run test
 
       - name: Release
-        id: release-7
+        id: release-8
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
