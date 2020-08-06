@@ -5,3 +5,4 @@
  */
 
 export { wrapPageElement } from "../_wrap-page-element";
+export { wrapRootElement } from "../_wrap-root-element";

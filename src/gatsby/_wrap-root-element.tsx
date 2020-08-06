@@ -2,6 +2,7 @@ import * as React from "react";
 import * as GB from "gatsby";
 import * as ReactRedux from "react-redux";
 
+import * as Components from "~/components";
 import * as Redux from "~/redux";
 
 export interface IWrapRootElementProps extends GB.WrapRootElementBrowserArgs {
@@ -15,7 +16,10 @@ export const wrapRootElement = (props: IWrapRootElementProps) => {
 
 	return (
 		<React.Fragment>
-			<ReactRedux.Provider store={store}>{element}</ReactRedux.Provider>
+			<Components.Head />
+			<ReactRedux.Provider store={store}>
+				<Components.Observer>{element}</Components.Observer>
+			</ReactRedux.Provider>
 		</React.Fragment>
 	);
 };
