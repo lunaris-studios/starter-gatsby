@@ -23,8 +23,10 @@
 
 ## Features
 
-- Automatic CI and release provisioning via **Github Actions** and [**semantic-release**](https://github.com/semantic-release/semantic-release)
-- Dependency setup & injection via, [**Nix**](https://nixos.org/), [**Niv**](https://github.com/nmattia/niv), [**Lorri**](https://github.com/target/lorri), and [**direnv**](https://github.com/direnv/direnv)
+- Release provisioning via **Github Actions** and [**semantic-release**](https://github.com/semantic-release/semantic-release)
+- [**Lighthouse CI**](https://github.com/GoogleChrome/lighthouse-ci) via **Github Actions**
+- Pre-commit hook formatting via [**Husky**](https://github.com/typicode/husky) and [**lint-staged**](https://github.com/okonet/lint-staged)
+- Dependency setup and injection via, [**Nix**](https://nixos.org/), [**Niv**](https://github.com/nmattia/niv), [**Lorri**](https://github.com/target/lorri), and [**direnv**](https://github.com/direnv/direnv)
 - Automatically generate **Typescript** types for **Gatsby** **GraphQL** queries via [**graphql-code-generator**](https://github.com/dotansimha/graphql-code-generator)
 - Testing via [**Jest**](https://jestjs.io/) and [**@testing-library**](https://testing-library.com/)
 
