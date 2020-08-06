@@ -1,6 +1,6 @@
 import * as React from "react";
+import * as Spring from "react-spring";
 
-import * as Animators from "~/animators";
 import * as Common from "~/common";
 import * as Components from "~/components";
 
@@ -28,32 +28,57 @@ export interface IFooState {
 	bar: boolean;
 }
 
+export interface IFooAnimated {
+	/**
+	 * Transition animation for [Foo.Container]
+	 */
+	container: Animated.Container;
+}
+
 const defaultProps = Object.freeze<IFooProps>({
-	foo: true
+	foo: true,
 });
 
 const defaultState = Object.freeze<IFooState>({
 	bar: false,
 });
 
+const defaultAnimated = Object.freeze<IFooAnimated>({
+	container: new Animated.Container(),
+});
 
 export class Foo extends React.PureComponent<IFooProps, IFooState, {}> {
-	static readonly defaultProps: IFooProps = defaultProps;
-	private defaultState: IFooState = defaultState;
+	public static readonly displayName = `${Common.DISPLAYNAME_PREFIX}.Overlay`;
 
-	public state: IFooState = this.defaultState;
-	private animate: Animated.Controller = new Animated.Controller();
+	public static readonly defaultProps: IFooProps = defaultProps;
+	public static readonly defaultState: IFooState = defaultState;
+	public static readonly defaultAnimated: IFooAnimated = defaultAnimated;
+
+	public state: IFooState = defaultState;
+	public animated: IFooAnimated = defaultAnimated;
 
 	public render() {
 		const {
+			foo,
 			// ...
-		} = this.props; 
+		} = this.props;
+
+		const {
+			bar,
+			// ...
+		} = this.state;
+
+		const containerTransitionProps = this.animated.container.transitionProps({
+			foo,
+		});
 
 		return (
-			<Styled.Foo.Container>
-				{/* ... */}
-			</Styled.Foo.Container>
-		)
+			<Spring.Transition items={foo} {...containerTransitionProps}>
+				{(style, visible) =>
+					visible && <Styled.Foo.Container style={style}>{/* ... */}</Styled.Foo.Container>
+				}
+			</Spring.Transition>
+		);
 	}
 
 	public componentDidMount() {

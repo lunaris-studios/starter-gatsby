@@ -21,7 +21,8 @@ export function configureStore(defaultState: Partial<TS.RootState> = {}) {
 }
 
 const compose =
-	(typeof window !== "undefined" && (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || Redux.compose;
+	(typeof window !== "undefined" && (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+	Redux.compose;
 
 const enhance = compose(
 	// Middleware you want to use in development:

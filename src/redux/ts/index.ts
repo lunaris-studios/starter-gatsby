@@ -1,10 +1,12 @@
-import * as Redux from "~/redux";
+import * as Redux from "redux";
+
+import { configureStore, createRootReducer } from "~/redux";
 
 /** */
-export type RootState = ReturnType<typeof Redux.createRootReducer>;
+export type RootState = ReturnType<typeof createRootReducer>;
 
 /** */
-export type RootStore = ReturnType<typeof Redux.configureStore>;
+export type RootStore = ReturnType<typeof configureStore>;
 
 /** */
 export interface CustomAction extends Redux.Action {
@@ -23,10 +25,5 @@ export interface ConnectedComponent<P extends object> extends React.ComponentCla
 	new (props: P): React.Component<P>;
 }
 
-/**
- * Generic flux based action object.
- */
-export interface Action<T> {
-	type: T;
-	payload: any;
-}
+/** */
+export type Dispatch = Redux.Dispatch;

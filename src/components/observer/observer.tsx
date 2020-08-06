@@ -1,125 +1,82 @@
 import * as React from "react";
 import * as ReactRedux from "react-redux";
-import * as Universal from "react-universal-interface";
+import * as Sensors from "@paradigmjs/sensors";
+import * as Universal from "@paradigmjs/universal";
+import * as Util from "@paradigmjs/util";
 
 import * as Common from "~/common";
 import * as Redux from "~/redux";
-import * as Sensors from "~/sensors";
-import * as Util from "~/util";
 
 import * as Styled from "./observer.styled";
 
-import { withHover } from 'libreact/lib/HoverSensor';
+export interface IOberserverProps extends ReduxProps, SensorProps {}
 
-export interface IOberserverProps extends ConnectedProps {}
+type ReduxProps = ReactRedux.ConnectedProps<typeof redux>;
+type SensorProps = Universal.ComposedProps<typeof sensors>;
 
-type ConnectedProps = Redux.ConnectedProps<typeof connector>;
-
-// const enhancer = Redux.compose(
-// 	connector,
-// 	Sensors.withDeviceMotion,
-// 	Sensors.withDeviceOrientation,
-// 	Sensors.withLocales,
-// 	Sensors.withLocation,
-// 	Sensors.withMouse,
-// 	Sensors.withNetwork,
-// 	Sensors.withWindowSize
-// );
-
-// type ConnectedProps = Redux.ConnectedProps<typeof connector>;
-// type SensorProps = Sensors.CombinedProps<{
-// 	deviceMotion: Sensors.IDeviceMotionSensorProps;
-// 	deviceOrientation: Sensors.IDeviceOrientationSensorProps;
-// 	locales: Sensors.ILocaleSensorProps;
-// 	location: Sensors.ILocationSensorProps;
-// 	mouse: Sensors.IMouseSensorProps;
-// 	network: Sensors.INetworkSensorProps;
-// 	windowSize: Sensors.IWindowSizeSensorProps;
-// }>;
-
-// export interface IOberserverProps extends Common.IProps, ConnectedProps, SensorProps {}
-
-// @ReactRedux.connect(mapState, mapDispatch)
-// @Sensors.withDeviceMotion
-@withHover
-export class Oberserver extends React.PureComponent<IOberserverProps, {}> {
-	// public static displayName = `${Common.DISPLAYNAME_PREFIX}.Oberserver` as any;
+class ObserverImpl extends React.PureComponent<IOberserverProps, {}> {
+	public static readonly displayName = `${Common.DISPLAYNAME_PREFIX}.Observer`;
 
 	public constructor(props: IOberserverProps) {
 		super(props);
 	}
 
 	public componentDidUpdate() {
-		const { device: deviceState } = this.props.store;
-		const { device: deviceActions } = this.props.dispatch;
+		const { client: clientStore, theme: themeStore } = this.props.store;
+		const { client: clientDispatch, theme: themeDispatch } = this.props.dispatch;
 
-		const { location: locationState } = this.props.store;
-		const { location: locationActions } = this.props.dispatch;
-
-		const { mouse: mouseState } = this.props.store;
-		const { mouse: mouseActions } = this.props.dispatch;
-
-		const { theme: themeState } = this.props.store;
-		const { theme: themeActions } = this.props.dispatch;
-
-		const { user: userState } = this.props.store;
-		const { user: userActions } = this.props.dispatch;
-
-		const { windowSize: windowSizeState } = this.props.store;
-		const { windowSize: windowSizeActions } = this.props.dispatch;
-
-		/** === DEVICE MOTION === */
-		const { deviceMotion: deviceMotionSensor } = this.props.sensor;
-		if (!Util.isEqual(deviceState.state.motion, deviceMotionSensor.state)) {
-			deviceActions.setMotion(deviceMotionSensor.state);
+		/** Locale */
+		const { locale: localeSensor } = this.props.sensors;
+		if (!Util.isEqual(clientStore.locale, localeSensor)) {
+			clientDispatch.setLocale(localeSensor);
 		}
 
-		/** === DEVICE ORIENTATION === */
-		const { deviceOrientation: deviceOrientationSensor } = this.props.sensor;
-		if (!Util.isEqual(deviceState.state.orientation, deviceOrientationSensor.state)) {
-			deviceActions.setOrientation(deviceOrientationSensor.state);
+		/** Location */
+		const { location: locationSensor } = this.props.sensors;
+		if (!Util.isEqual(clientStore.location, locationSensor)) {
+			clientDispatch.setLocation(locationSensor);
 		}
 
-		/** === LOCALES === */
-		const { locales: localesSensor } = this.props.sensor;
-		if (!Util.isEqual(userState.state.locales, localesSensor.state)) {
-			userActions.setLocales(localesSensor.state);
+		/** Motion */
+		const { deviceMotion: motionSensor } = this.props.sensors;
+		if (!Util.isEqual(clientStore.motion, motionSensor)) {
+			clientDispatch.setMotion(motionSensor);
 		}
 
-		/** === LOCATION === */
-		const { network: networkSensor } = this.props.sensor;
-		if (!Util.isEqual(userState.state.network, networkSensor.state)) {
-			userActions.setNetwork(networkSensor.state);
+		/** Mouse */
+		const { mouse: mouseSensor } = this.props.sensors;
+		if (!Util.isEqual(clientStore.mouse, mouseSensor)) {
+			clientDispatch.setMouse(mouseSensor);
 		}
 
-		/** === LOCATION === */
-		const { location: locationSensor } = this.props.sensor;
-		if (!Util.isEqual(locationState.state, locationSensor.state)) {
-			locationActions.setLocation(locationSensor.state);
+		/** Network */
+		const { network: networkSensor } = this.props.sensors;
+		if (!Util.isEqual(clientStore.network, networkSensor)) {
+			clientDispatch.setNetwork(networkSensor);
 		}
 
-		/** === MOUSE === */
-		const { mouse: mouseSensor } = this.props.sensor;
-		if (!Util.isEqual(mouseState.state, mouseSensor.state)) {
-			mouseActions.setMouse(mouseSensor.state);
+		/** Orientation */
+		const { deviceOrientation: orientationSensor } = this.props.sensors;
+		if (!Util.isEqual(clientStore.orientation, orientationSensor)) {
+			clientDispatch.setOrientation(orientationSensor);
 		}
 
-		/** === WINDOW SIZE === */
-		const { windowSize: windowSizeSensor } = this.props.sensor;
-		if (!Util.isEqual(windowSizeState.state, windowSizeSensor.state)) {
-			windowSizeActions.setWindowSize(windowSizeSensor.state);
-			themeActions.setDeviceByWindowSize(windowSizeSensor.state);
+		/** Window Size */
+		const { windowSize: windowSizeSensor } = this.props.sensors;
+		if (!Util.isEqual(clientStore.windowSize, windowSizeSensor)) {
+			clientDispatch.setWindowSize(windowSizeSensor);
+			themeDispatch.setDeviceByWindowSize(windowSizeSensor);
 		}
 	}
 
 	public render() {
 		const { children } = this.props;
 
-		const { mouse: mouseSensor } = this.props.sensor;
+		const { mouse: mouseSensor } = this.props.sensors;
 
 		return (
 			<Styled.Observer.Container>
-				<Styled.Observer.Mouse.Container ref={mouseSensor.refHandlers.target}>
+				<Styled.Observer.Mouse.Container ref={mouseSensor.refHandlers?.target}>
 					{children}
 				</Styled.Observer.Mouse.Container>
 			</Styled.Observer.Container>
@@ -130,33 +87,29 @@ export class Oberserver extends React.PureComponent<IOberserverProps, {}> {
 //
 
 function mapState(state: Redux.TS.RootState) {
-	const device = Redux.Reducers.Device.mapState(state);
-	const location = Redux.Reducers.Location.mapState(state);
-	const mouse = Redux.Reducers.Mouse.mapState(state);
+	const client = Redux.Reducers.Client.mapState(state);
 	const theme = Redux.Reducers.Theme.mapState(state);
-	const user = Redux.Reducers.User.mapState(state);
-	const windowSize = Redux.Reducers.WindowSize.mapState(state);
 
-	return { store: { device, location, mouse, theme, user, windowSize } };
+	return { store: { client, theme } };
 }
 
-function mapDispatch(dispatch: Redux.Dispatch) {
-	const device = Redux.Reducers.Device.mapDispatch(dispatch);
-	const location = Redux.Reducers.Location.mapDispatch(dispatch);
-	const mouse = Redux.Reducers.Mouse.mapDispatch(dispatch);
+function mapDispatch(dispatch: Redux.TS.Dispatch) {
+	const client = Redux.Reducers.Client.mapDispatch(dispatch);
 	const theme = Redux.Reducers.Theme.mapDispatch(dispatch);
-	const user = Redux.Reducers.User.mapDispatch(dispatch);
-	const windowSize = Redux.Reducers.WindowSize.mapDispatch(dispatch);
 
-	return { dispatch: { device, location, mouse, theme, user, windowSize } };
+	return { dispatch: { client, theme } };
 }
 
-const connector = ReactRedux.connect(mapState, mapDispatch);
+const redux = ReactRedux.connect(mapState, mapDispatch);
 
-class MyData extends React.Component {
-	render () {
-			return Universal.render(this.props, this.state);
-	}
-}
+const sensors = Universal.compose(
+	Sensors.withDeviceOrientationSensor,
+	Sensors.withDeviceMotionSensor,
+	Sensors.withLocaleSensor,
+	Sensors.withLocationSensor,
+	Sensors.withMouseSensor,
+	Sensors.withNetworkSensor,
+	Sensors.withWindowSizeSensor
+);
 
-const withData = Universal.createEnhancer(MyData, 'data');
+export const Observer = redux(sensors(ObserverImpl));

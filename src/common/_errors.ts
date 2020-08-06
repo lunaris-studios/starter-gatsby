@@ -1,7 +1,7 @@
-const ns = "[STARTER-GATSBY]";
+import * as Props from "./_props";
 
 function createErrorMessage(message: string): string {
-	return `${ns} | ${message}`;
+	return `${Props.DISPLAYNAME_PREFIX} | ${message}`;
 }
 
-export const FOO = createErrorMessage("foo");
+export const FOO_WARN_NO_BAR = createErrorMessage("no bar present in foo");

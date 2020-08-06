@@ -1,8 +1,7 @@
 import * as Immer from "immer";
+import * as Protocol from "@paradigmjs/protocol";
 import * as ReactRedux from "react-redux";
 import * as Redux from "redux";
-
-import * as Style from "~/style";
 
 import * as TS from "~/redux/ts";
 import * as Reducers from "~/redux/reducers";
@@ -12,27 +11,31 @@ export interface State {
 	constants: Constants;
 }
 
-/** Dynamic theme states */
+/**
+ * Dynamic theme states
+ */
 export interface Binds {
-	[Style.Bind.DEVICE]?: Style.Device;
-	[Style.Bind.MODE]?: Style.Mode;
+	device: Protocol.Device;
+	scheme: Protocol.Scheme;
 }
 
-/** Immutable theme states */
+/**
+ * Immutable theme states
+ */
 export interface Constants {
-	alignments: typeof Style.Alignment;
-	boundaries: typeof Style.Boundary;
-	breakpoints: typeof Style.Breakpoint;
-	colors: typeof Style.Color;
-	devices: typeof Style.Device;
-	elevations: typeof Style.Elevation;
-	fonts: typeof Style.Device;
-	intents: typeof Style.Intent;
-	keys: typeof Style.Key;
-	modes: typeof Style.Mode;
-	positions: typeof Style.Position;
-	sizes: typeof Style.Device;
-	spaces: typeof Style.Space;
+	alignments: typeof Protocol.Alignment;
+	boundaries: typeof Protocol.Boundary;
+	breakpoints: typeof Protocol.Breakpoint;
+	colors: typeof Protocol.Color;
+	devices: typeof Protocol.Device;
+	elevations: typeof Protocol.Elevation;
+	fonts: typeof Protocol.Device;
+	intents: typeof Protocol.Intent;
+	keys: typeof Protocol.Key;
+	positions: typeof Protocol.Position;
+	schemes: typeof Protocol.Scheme;
+	sizes: typeof Protocol.Device;
+	spaces: typeof Protocol.Space;
 }
 
 export enum Actions {
@@ -41,24 +44,24 @@ export enum Actions {
 }
 
 export const defaultBinds = Object.freeze<Binds>({
-	[Style.Bind.DEVICE]: Style.Device.DESKTOP,
-	[Style.Bind.MODE]: Style.Mode.LIGHT,
+	device: Protocol.Device.DESKTOP,
+	scheme: Protocol.Scheme.LIGHT,
 });
 
 export const defaultConstants = Object.freeze<Constants>({
-	alignments: Style.Alignment,
-	boundaries: Style.Boundary,
-	breakpoints: Style.Breakpoint,
-	colors: Style.Color,
-	devices: Style.Device,
-	elevations: Style.Elevation,
-	fonts: Style.Device,
-	intents: Style.Intent,
-	keys: Style.Key,
-	modes: Style.Mode,
-	positions: Style.Position,
-	sizes: Style.Device,
-	spaces: Style.Space,
+	alignments: Protocol.Alignment,
+	boundaries: Protocol.Boundary,
+	breakpoints: Protocol.Breakpoint,
+	colors: Protocol.Color,
+	devices: Protocol.Device,
+	elevations: Protocol.Elevation,
+	fonts: Protocol.Device,
+	intents: Protocol.Intent,
+	keys: Protocol.Key,
+	positions: Protocol.Position,
+	schemes: Protocol.Scheme,
+	sizes: Protocol.Device,
+	spaces: Protocol.Space,
 });
 
 export const defaultState = Object.freeze<State>({
@@ -92,45 +95,45 @@ export function mapState(state: TS.RootState) {
 
 	/** */
 
-	function getDevice(): State["binds"][Style.Bind.DEVICE] {
-		return theme.binds[Style.Bind.DEVICE];
+	function getDevice(): State["binds"]["device"] {
+		return theme.binds.device;
 	}
 
 	function isDeviceMobile(): boolean {
-		return Boolean(theme.binds[Style.Bind.DEVICE] === Style.Device.MOBILE);
+		return Boolean(theme.binds.device === Protocol.Device.MOBILE);
 	}
 
 	function isDeviceTablet(): boolean {
-		return Boolean(theme.binds[Style.Bind.DEVICE] === Style.Device.TABLET);
+		return Boolean(theme.binds.device === Protocol.Device.TABLET);
 	}
 
 	function isDeviceDesktop(): boolean {
-		return Boolean(theme.binds[Style.Bind.DEVICE] === Style.Device.DESKTOP);
+		return Boolean(theme.binds.device === Protocol.Device.DESKTOP);
 	}
 
 	function isDeviceUltrawide(): boolean {
-		return Boolean(theme.binds[Style.Bind.DEVICE] === Style.Device.ULTRAWIDE);
+		return Boolean(theme.binds.device === Protocol.Device.ULTRAWIDE);
 	}
 
 	function isDeviceDesktopOrBigger(): boolean {
 		return Boolean(
-			theme.binds[Style.Bind.DEVICE] === Style.Device.DESKTOP ||
-				theme.binds[Style.Bind.DEVICE] === Style.Device.ULTRAWIDE
+			theme.binds.device === Protocol.Device.DESKTOP ||
+				theme.binds.device === Protocol.Device.ULTRAWIDE
 		);
 	}
 
 	/** */
 
-	function getMode(): State["binds"][Style.Bind.MODE] {
-		return theme.binds[Style.Bind.MODE];
+	function getScheme(): State["binds"]["scheme"] {
+		return theme.binds.scheme;
 	}
 
-	function isModeDark(): boolean {
-		return Boolean(theme.binds[Style.Bind.MODE] === Style.Mode.DARK);
+	function isSchemeDark(): boolean {
+		return Boolean(theme.binds.scheme === Protocol.Scheme.DARK);
 	}
 
-	function isModeLight(): boolean {
-		return Boolean(theme.binds[Style.Bind.MODE] === Style.Mode.LIGHT);
+	function isSchemeLight(): boolean {
+		return Boolean(theme.binds.scheme === Protocol.Scheme.LIGHT);
 	}
 
 	return {
@@ -144,9 +147,9 @@ export function mapState(state: TS.RootState) {
 		isDeviceUltrawide,
 		isDeviceDesktopOrBigger,
 
-		getMode,
-		isModeDark,
-		isModeLight,
+		getScheme,
+		isSchemeDark,
+		isSchemeLight,
 	};
 }
 
@@ -165,63 +168,68 @@ export function mapDispatch(dispatch: Redux.Dispatch<Redux.AnyAction>) {
 		return set(Actions.THEME_SET_DEFAULT, payload);
 	}
 
-	function setBind<N extends keyof State["binds"]>(name: N, value: State["binds"][N]): ReturnType<typeof set> {
+	function setBind<N extends keyof State["binds"]>(
+		name: N,
+		value: State["binds"][N]
+	): ReturnType<typeof set> {
 		const payload = Object.freeze({ name, value });
 		return set(Actions.THEME_SET_BIND, payload);
 	}
 
 	/** */
 
-	function setDevice(device: Style.Device): ReturnType<typeof setBind> {
-		return setBind(Style.Bind.DEVICE, device);
+	function setDevice(device: Protocol.Device): ReturnType<typeof setBind> {
+		return setBind("device", device);
 	}
 
 	function setDeviceMobile(): ReturnType<typeof setDevice> {
-		return setDevice(Style.Device.MOBILE);
+		return setDevice(Protocol.Device.MOBILE);
 	}
 
 	function setDeviceDesktop(): ReturnType<typeof setDevice> {
-		return setDevice(Style.Device.DESKTOP);
+		return setDevice(Protocol.Device.DESKTOP);
 	}
 
 	function setDeviceTablet(): ReturnType<typeof setDevice> {
-		return setDevice(Style.Device.TABLET);
+		return setDevice(Protocol.Device.TABLET);
 	}
 
 	function setDeviceUltrawide(): ReturnType<typeof setDevice> {
-		return setDevice(Style.Device.ULTRAWIDE);
+		return setDevice(Protocol.Device.ULTRAWIDE);
 	}
 
-	function setDeviceByWindowSize(windowSize: Reducers.WindowSize.EventState): ReturnType<typeof setDevice> {
+	function setDeviceByWindowSize(
+		windowSize: Reducers.WindowSize.EventState
+	): ReturnType<typeof setDevice> {
 		const { width } = windowSize;
-		const entries = Object.entries(Style.Breakpoint);
+		const entries = Object.entries(Protocol.Breakpoint);
 
 		const device = entries.reduce((acc, entry) => {
 			const [device, values] = entry;
 			const { min, max } = values;
 
 			if (width > min && width < max) {
-				acc = device as Style.Device;
+				acc = device as Protocol.Device;
 			}
 
 			return acc;
-		}, "" as Style.Device);
+		}, "" as Protocol.Device);
 
 		return setDevice(device);
 	}
 
 	/** */
 
-	function setMode(mode: Style.Mode): ReturnType<typeof setBind> {
-		return setBind(Style.Bind.MODE, mode);
+	function setScheme(scheme: Protocol.Scheme): ReturnType<typeof setBind> {
+		return setBind("scheme", scheme);
 	}
 
-	function setModeDark(): ReturnType<typeof setMode> {
-		return setMode(Style.Mode.DARK);
+	function setSchemeDark(): ReturnType<typeof setScheme> {
+		return setScheme(Protocol.Scheme.DARK);
 	}
 
-	function setModeLight(): ReturnType<typeof setMode> {
-		return setMode(Style.Mode.LIGHT);
+	function setSchemeLight(): ReturnType<typeof setScheme> {
+		return setScheme(Protocol.Scheme.LIGHT);
 	}
 
 	/** */
@@ -237,9 +245,9 @@ export function mapDispatch(dispatch: Redux.Dispatch<Redux.AnyAction>) {
 		setDeviceUltrawide,
 		setDeviceByWindowSize,
 
-		setMode,
-		setModeDark,
-		setModeLight,
+		setScheme,
+		setSchemeDark,
+		setSchemeLight,
 	};
 }
 

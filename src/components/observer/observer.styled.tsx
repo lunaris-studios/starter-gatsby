@@ -1,7 +1,6 @@
+import * as Protocol from "@paradigmjs/protocol";
 import * as React from "react";
-import * as Styled from "styled-components";
-
-import * as Style from "~/style";
+import * as SC from "styled-components";
 
 // re-import `styled-components` development mode DOM classnames.
 import styled, { css } from "styled-components";
@@ -22,7 +21,7 @@ import styled, { css } from "styled-components";
  */
 
 interface Observer {
-	Container: Styled.StyledComponent<"div", any, IObserverContainerAttrs, keyof IObserverContainerAttrs>;
+	Container: SC.StyledComponent<"div", any, IObserverContainerAttrs, keyof IObserverContainerAttrs>;
 
 	Mouse: ObserverMouse;
 }
@@ -42,7 +41,7 @@ Observer.Container = styled("div").attrs(
 		...props,
 	})
 )`
-	${Style.Snippets.cover()}
+	${Protocol.Snippets.cover()}
 	overflow: auto;
 `;
 
@@ -52,7 +51,12 @@ Observer.Container = styled("div").attrs(
  */
 
 interface ObserverMouse {
-	Container: Styled.StyledComponent<"div", any, IObserverMouseContainerAttrs, keyof IObserverMouseContainerAttrs>;
+	Container: SC.StyledComponent<
+		"div",
+		any,
+		IObserverMouseContainerAttrs,
+		keyof IObserverMouseContainerAttrs
+	>;
 }
 
 Observer.Mouse = {} as ObserverMouse;
@@ -70,5 +74,5 @@ Observer.Mouse.Container = styled("div").attrs(
 		...props,
 	})
 )`
-	${Style.Snippets.size("auto", "auto")}
+	${Protocol.Snippets.cover()}
 `;
