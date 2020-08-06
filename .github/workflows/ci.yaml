@@ -41,7 +41,7 @@ jobs:
           npm run test
 
       - name: Release
-        id: release-8
+        id: release-9
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
