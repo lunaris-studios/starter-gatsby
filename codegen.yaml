@@ -1,8 +1,7 @@
 overwrite: true
-schema: "http://localhost:8000/___graphql"
+schema: "http://localhost:9000/___graphql"
 documents:
   - ./src/**/*.{ts,tsx}
-  - ./.cache/fragments/*.js
   - ./node_modules/gatsby*/!(node_modules)/**/*.js
 generates:
   ./src/types.ts:

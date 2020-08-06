@@ -1130,7 +1130,7 @@
 								"description": "",
 								"type": {
 									"kind": "INPUT_OBJECT",
-									"name": "DateQueryOperatorInput",
+									"name": "IntQueryOperatorInput",
 									"ofType": null
 								},
 								"defaultValue": null
@@ -11334,6 +11334,26 @@
 						"defaultValue": null
 					},
 					{
+						"name": "path",
+						"description": "",
+						"type": {
+							"kind": "INPUT_OBJECT",
+							"name": "StringQueryOperatorInput",
+							"ofType": null
+						},
+						"defaultValue": null
+					},
+					{
+						"name": "ignore",
+						"description": "",
+						"type": {
+							"kind": "INPUT_OBJECT",
+							"name": "SitePluginPluginOptionsIgnoreFilterInput",
+							"ofType": null
+						},
+						"defaultValue": null
+					},
+					{
 						"name": "color",
 						"description": "",
 						"type": {
@@ -11394,16 +11414,6 @@
 						"defaultValue": null
 					},
 					{
-						"name": "path",
-						"description": "",
-						"type": {
-							"kind": "INPUT_OBJECT",
-							"name": "StringQueryOperatorInput",
-							"ofType": null
-						},
-						"defaultValue": null
-					},
-					{
 						"name": "pathCheck",
 						"description": "",
 						"type": {
@@ -11430,6 +11440,58 @@
 						"type": {
 							"kind": "INPUT_OBJECT",
 							"name": "StringQueryOperatorInput",
+							"ofType": null
+						},
+						"defaultValue": null
+					}
+				],
+				"interfaces": null,
+				"enumValues": null,
+				"possibleTypes": null
+			},
+			{
+				"kind": "INPUT_OBJECT",
+				"name": "SitePluginPluginOptionsIgnoreFilterInput",
+				"description": null,
+				"fields": null,
+				"inputFields": [
+					{
+						"name": "patterns",
+						"description": "",
+						"type": {
+							"kind": "INPUT_OBJECT",
+							"name": "StringQueryOperatorInput",
+							"ofType": null
+						},
+						"defaultValue": null
+					},
+					{
+						"name": "options",
+						"description": "",
+						"type": {
+							"kind": "INPUT_OBJECT",
+							"name": "SitePluginPluginOptionsIgnoreOptionsFilterInput",
+							"ofType": null
+						},
+						"defaultValue": null
+					}
+				],
+				"interfaces": null,
+				"enumValues": null,
+				"possibleTypes": null
+			},
+			{
+				"kind": "INPUT_OBJECT",
+				"name": "SitePluginPluginOptionsIgnoreOptionsFilterInput",
+				"description": null,
+				"fields": null,
+				"inputFields": [
+					{
+						"name": "nocase",
+						"description": "",
+						"type": {
+							"kind": "INPUT_OBJECT",
+							"name": "BooleanQueryOperatorInput",
 							"ofType": null
 						},
 						"defaultValue": null
@@ -12180,6 +12242,30 @@
 						"deprecationReason": null
 					},
 					{
+						"name": "path",
+						"description": null,
+						"args": [],
+						"type": {
+							"kind": "SCALAR",
+							"name": "String",
+							"ofType": null
+						},
+						"isDeprecated": false,
+						"deprecationReason": null
+					},
+					{
+						"name": "ignore",
+						"description": null,
+						"args": [],
+						"type": {
+							"kind": "OBJECT",
+							"name": "SitePluginPluginOptionsIgnore",
+							"ofType": null
+						},
+						"isDeprecated": false,
+						"deprecationReason": null
+					},
+					{
 						"name": "color",
 						"description": null,
 						"args": [],
@@ -12252,18 +12338,6 @@
 						"deprecationReason": null
 					},
 					{
-						"name": "path",
-						"description": null,
-						"args": [],
-						"type": {
-							"kind": "SCALAR",
-							"name": "String",
-							"ofType": null
-						},
-						"isDeprecated": false,
-						"deprecationReason": null
-					},
-					{
 						"name": "pathCheck",
 						"description": null,
 						"args": [],
@@ -12293,6 +12367,68 @@
 						"type": {
 							"kind": "SCALAR",
 							"name": "String",
+							"ofType": null
+						},
+						"isDeprecated": false,
+						"deprecationReason": null
+					}
+				],
+				"inputFields": null,
+				"interfaces": [],
+				"enumValues": null,
+				"possibleTypes": null
+			},
+			{
+				"kind": "OBJECT",
+				"name": "SitePluginPluginOptionsIgnore",
+				"description": null,
+				"fields": [
+					{
+						"name": "patterns",
+						"description": null,
+						"args": [],
+						"type": {
+							"kind": "LIST",
+							"name": null,
+							"ofType": {
+								"kind": "SCALAR",
+								"name": "String",
+								"ofType": null
+							}
+						},
+						"isDeprecated": false,
+						"deprecationReason": null
+					},
+					{
+						"name": "options",
+						"description": null,
+						"args": [],
+						"type": {
+							"kind": "OBJECT",
+							"name": "SitePluginPluginOptionsIgnoreOptions",
+							"ofType": null
+						},
+						"isDeprecated": false,
+						"deprecationReason": null
+					}
+				],
+				"inputFields": null,
+				"interfaces": [],
+				"enumValues": null,
+				"possibleTypes": null
+			},
+			{
+				"kind": "OBJECT",
+				"name": "SitePluginPluginOptionsIgnoreOptions",
+				"description": null,
+				"fields": [
+					{
+						"name": "nocase",
+						"description": null,
+						"args": [],
+						"type": {
+							"kind": "SCALAR",
+							"name": "Boolean",
 							"ofType": null
 						},
 						"isDeprecated": false,
@@ -13595,6 +13731,18 @@
 						"deprecationReason": null
 					},
 					{
+						"name": "pluginCreator___pluginOptions___path",
+						"description": null,
+						"isDeprecated": false,
+						"deprecationReason": null
+					},
+					{
+						"name": "pluginCreator___pluginOptions___ignore___patterns",
+						"description": null,
+						"isDeprecated": false,
+						"deprecationReason": null
+					},
+					{
 						"name": "pluginCreator___pluginOptions___color",
 						"description": null,
 						"isDeprecated": false,
@@ -13632,12 +13780,6 @@
 					},
 					{
 						"name": "pluginCreator___pluginOptions___name",
-						"description": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					},
-					{
-						"name": "pluginCreator___pluginOptions___path",
 						"description": null,
 						"isDeprecated": false,
 						"deprecationReason": null
@@ -14197,51 +14339,10 @@
 					{
 						"name": "port",
 						"description": null,
-						"args": [
-							{
-								"name": "formatString",
-								"description": "Format the date using Moment.js' date tokens, e.g. `date(formatString: \"YYYY MMMM DD\")`. See https://momentjs.com/docs/#/displaying/format/ for documentation for different tokens.",
-								"type": {
-									"kind": "SCALAR",
-									"name": "String",
-									"ofType": null
-								},
-								"defaultValue": null
-							},
-							{
-								"name": "fromNow",
-								"description": "Returns a string generated with Moment.js' `fromNow` function",
-								"type": {
-									"kind": "SCALAR",
-									"name": "Boolean",
-									"ofType": null
-								},
-								"defaultValue": null
-							},
-							{
-								"name": "difference",
-								"description": "Returns the difference between this date and the current time. Defaults to \"milliseconds\" but you can also pass in as the measurement \"years\", \"months\", \"weeks\", \"days\", \"hours\", \"minutes\", and \"seconds\".",
-								"type": {
-									"kind": "SCALAR",
-									"name": "String",
-									"ofType": null
-								},
-								"defaultValue": null
-							},
-							{
-								"name": "locale",
-								"description": "Configures the locale Moment.js will use to format the date.",
-								"type": {
-									"kind": "SCALAR",
-									"name": "String",
-									"ofType": null
-								},
-								"defaultValue": null
-							}
-						],
+						"args": [],
 						"type": {
 							"kind": "SCALAR",
-							"name": "Date",
+							"name": "Int",
 							"ofType": null
 						},
 						"isDeprecated": false,
@@ -14384,7 +14485,7 @@
 						"description": "",
 						"type": {
 							"kind": "INPUT_OBJECT",
-							"name": "DateQueryOperatorInput",
+							"name": "IntQueryOperatorInput",
 							"ofType": null
 						},
 						"defaultValue": null
@@ -18380,6 +18481,24 @@
 						"deprecationReason": null
 					},
 					{
+						"name": "pluginOptions___path",
+						"description": null,
+						"isDeprecated": false,
+						"deprecationReason": null
+					},
+					{
+						"name": "pluginOptions___ignore___patterns",
+						"description": null,
+						"isDeprecated": false,
+						"deprecationReason": null
+					},
+					{
+						"name": "pluginOptions___ignore___options___nocase",
+						"description": null,
+						"isDeprecated": false,
+						"deprecationReason": null
+					},
+					{
 						"name": "pluginOptions___color",
 						"description": null,
 						"isDeprecated": false,
@@ -18417,12 +18536,6 @@
 					},
 					{
 						"name": "pluginOptions___name",
-						"description": null,
-						"isDeprecated": false,
-						"deprecationReason": null
-					},
-					{
-						"name": "pluginOptions___path",
 						"description": null,
 						"isDeprecated": false,
 						"deprecationReason": null
