@@ -16,7 +16,7 @@
 		"generate": "run-s dev generate:graphql-codegen",
 		"generate:graphql-codegen": "graphql-codegen --config codegen.yaml",
 		"generate:stub-server": "np",
-		"lighthouse": "lhci autorun --upload.target=./target/lighthouse",
+		"lighthouse": "lhci autorun",
 		"release": "semantic-release --ci",
 		"serve": "gatsby serve",
 		"start": "npm run dev",
