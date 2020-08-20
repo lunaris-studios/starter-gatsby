@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Foo renders correctly 1`] = `
+<div
+  class=""
+  style="opacity: 0; transform: translate3d(0%, -100%, 0%);"
+  theme="[object Object]"
+/>
+`;
