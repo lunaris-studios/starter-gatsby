@@ -1,10 +1,8 @@
-import * as Gatsby from "@paradigmjs/gatsby";
+import * as GB from "gatsby";
 import * as React from "react";
 import * as ReactRedux from "react-redux";
-import * as Universal from "@paradigmjs/universal";
 
 import * as Common from "~/common";
-import * as Components from "~/components";
 import * as Layouts from "~/layouts";
 import * as Redux from "~/redux";
 
@@ -28,9 +26,7 @@ class HomePageImpl extends React.Component<IHomePageProps> {
 			<Layouts.View>
 				<Styled.Home.Container>
 					This is an example page! Click on this link to test an animation:
-					<Components.TransitionLink to="/paint-drip">
-						Custom animated link to another page
-					</Components.TransitionLink>
+					<GB.Link to="/paint-drip">Custom animated link to another page</GB.Link>
 					<div>{this.props.store.client.mouse.docX}</div>
 					<div>{this.props.store.client.mouse.docY}</div>
 					<div>{this.props.store.client.mouse.elH}</div>
