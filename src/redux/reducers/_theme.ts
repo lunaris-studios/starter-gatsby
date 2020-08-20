@@ -209,7 +209,8 @@ export function mapDispatch(dispatch: Redux.Dispatch<Redux.AnyAction>) {
 			const [device, values] = entry;
 			const { min, max } = values;
 
-			if (width > min && width < max) {
+			// TODO (sam): remove truthy check following @paradigmjs/sensors update
+			if (width && width > min && width < max) {
 				acc = device as Protocol.Device;
 			}
 
