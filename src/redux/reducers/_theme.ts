@@ -2,6 +2,7 @@ import * as Immer from "immer";
 import * as Protocol from "@paradigmjs/protocol";
 import * as ReactRedux from "react-redux";
 import * as Redux from "redux";
+import * as Sensors from "@paradigmjs/sensors";
 
 import * as TS from "~/redux/ts";
 import * as Reducers from "~/redux/reducers";
@@ -199,7 +200,7 @@ export function mapDispatch(dispatch: Redux.Dispatch<Redux.AnyAction>) {
 	}
 
 	function setDeviceByWindowSize(
-		windowSize: Reducers.WindowSize.EventState
+		windowSize: Sensors.IWindowSizeSensorState
 	): ReturnType<typeof setDevice> {
 		const { width } = windowSize;
 		const entries = Object.entries(Protocol.Breakpoint);
