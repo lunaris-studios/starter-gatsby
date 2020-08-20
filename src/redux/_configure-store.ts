@@ -20,6 +20,8 @@ export function configureStore(defaultState: Partial<TS.RootState> = {}) {
 	return store;
 }
 
+export type GlobalStore = ReturnType<typeof configureStore>;
+
 const compose =
 	(typeof window !== "undefined" && (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
 	Redux.compose;

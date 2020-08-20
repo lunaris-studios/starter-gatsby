@@ -7,11 +7,6 @@ import * as Components from "~/components";
 import * as Animated from "./foo.animated";
 import * as Styled from "./foo.styled";
 
-/**
- * [Foo]
- * - [Foo.Container(WRAPPER)]
- */
-
 export interface IFooProps {
 	/**
 	 * Indicates whether or not the foo is foo
